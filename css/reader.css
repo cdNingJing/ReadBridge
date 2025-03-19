@@ -1,0 +1,374 @@
+/* 阅读器基础布局 */
+.reader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-color);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 内容区域 */
+.reader-content {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--content-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chapter-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.chapter-content {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-color);
+    padding: 0 20px;
+}
+
+.chapter-content p {
+    margin-bottom: 1em;
+    text-indent: 2em;
+    letter-spacing: 0.05em;
+}
+
+.novel-paragraph {
+    text-indent: 2em;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    word-wrap: break-word;
+}
+
+/* 导航区域 */
+.reader-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--nav-bg-color);
+    padding: 10px 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.nav-group {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.nav-group button {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-group button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+.nav-group button:disabled {
+    background-color: var(--button-disabled-bg-color);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.back-btn {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+}
+
+.back-btn:hover {
+    background-color: var(--border-color);
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 768px) {
+    .reader-content {
+        padding: 15px;
+    }
+
+    .chapter-content {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    .nav-group {
+        flex-wrap: wrap;
+    }
+
+    .nav-group button {
+        min-width: 80px;
+    }
+
+    .chapter-title {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .novel-paragraph {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .reader-nav {
+        padding: 0.75rem;
+    }
+    
+    .reader-nav button,
+    .reader-nav a {
+        font-size: 0.875rem;
+    }
+
+    .back-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+    .reader-container {
+        background-color: var(--dark-bg-color);
+    }
+
+    .reader-content {
+        background-color: var(--dark-content-bg-color);
+    }
+
+    .chapter-title {
+        color: var(--dark-text-color);
+    }
+
+    .chapter-content {
+        color: var(--dark-text-color);
+    }
+
+    .back-btn {
+        background-color: var(--card-background);
+        border-color: var(--border-color);
+    }
+
+    .back-btn:hover {
+        background-color: var(--border-color);
+    }
+}
+
+/* 目录页面样式 */
+.reader-header {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-color);
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reader-header button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.reader-header button:hover {
+    background-color: var(--primary-hover);
+}
+
+.reader-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.catalog-info {
+    padding: 10px 15px;
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.chapter-list {
+    padding: 10px 15px;
+}
+
+.chapter-item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.chapter-item:last-child {
+    border-bottom: none;
+}
+
+.chapter-item a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.chapter-item.current {
+    background-color: var(--bg-hover);
+}
+
+.chapter-item.current a {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.catalog-pagination {
+    position: sticky;
+    bottom: 0;
+    background-color: var(--bg-color);
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.catalog-pagination button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.catalog-pagination button:disabled {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    cursor: not-allowed;
+}
+
+.page-info {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .reader-header {
+        padding: 10px;
+    }
+
+    .reader-header button {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .reader-nav {
+        padding: 10px;
+    }
+
+    .nav-group {
+        gap: 6px;
+    }
+
+    .reader-nav button,
+    .reader-nav a {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    .reader-title {
+        font-size: 1.1rem;
+    }
+
+    .catalog-info {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+
+    .chapter-list {
+        padding: 5px 10px;
+    }
+
+    .chapter-item {
+        padding: 10px 0;
+    }
+
+    .chapter-item a {
+        font-size: 0.95rem;
+        padding: 5px 0;
+    }
+
+    .catalog-pagination {
+        padding: 10px;
+    }
+
+    .catalog-pagination button {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+
+    .page-info {
+        font-size: 0.85rem;
+    }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+    .reader-header {
+        background-color: var(--bg-color);
+        border-color: var(--border-color);
+    }
+
+    .catalog-info {
+        background-color: var(--bg-secondary);
+    }
+
+    .chapter-item {
+        border-color: var(--border-color);
+    }
+
+    .catalog-pagination {
+        background-color: var(--bg-color);
+        border-color: var(--border-color);
+    }
+} 

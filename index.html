@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小说阅读器</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/bookshelf.css">
+    <link rel="stylesheet" href="css/reader.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>我的书架</h1>
+            <button id="addBookBtn" class="add-book-btn">
+                <span class="icon">+</span>
+                <span>添加小说</span>
+            </button>
+        </header>
+
+        <!-- 添加小说对话框 -->
+        <div id="addBookModal" class="modal">
+            <div class="modal-content">
+                <h2>添加小说</h2>
+                <div class="input-group">
+                    <input type="text" id="urlInput" placeholder="请输入小说网址">
+                    <button id="loadButton">加载</button>
+                </div>
+                <div id="bookInfo" class="book-info" style="display: none;">
+                    <div class="book-cover">
+                        <img id="bookCover" src="" alt="封面">
+                    </div>
+                    <div class="book-details">
+                        <h3 id="bookTitle"></h3>
+                        <p id="bookAuthor"></p>
+                        <p id="bookDescription" class="description"></p>
+                    </div>
+                </div>
+                <div class="modal-buttons">
+                    <button id="cancelBtn" class="btn-secondary">取消</button>
+                    <button id="confirmBtn" class="btn-primary">确认添加</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 书籍列表 -->
+        <div id="bookList" class="book-list">
+            <!-- 书籍卡片将通过 JavaScript 动态添加 -->
+        </div>
+    </div>
+
+    <!-- 处理器文件 -->
+    <script src="js/processors/BaseProcessor.js"></script>
+    <script src="js/processors/XbiquguProcessor.js"></script>
+    <script src="js/processors/BaiduDushuProcessor.js"></script>
+    <script src="js/processors/QidianProcessor.js"></script>
+    <script src="js/processors/ProcessorFactory.js"></script>
+    <!-- 主文件 -->
+    <script src="js/main.js"></script>
+</body>
+</html> 
