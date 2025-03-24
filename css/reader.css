@@ -1,10 +1,6 @@
 /* 阅读器基础布局 */
 .reader-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: relative;
     background-color: var(--bg-color);
     overflow-y: auto;
     display: flex;
@@ -55,12 +51,8 @@
 
 /* 导航区域 */
 .reader-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
     background-color: var(--nav-bg-color);
-    padding: 10px 20px;
+    padding: 0;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     z-index: 100;
 }
@@ -138,10 +130,6 @@
         line-height: 1.7;
     }
 
-    .reader-nav {
-        padding: 0.75rem;
-    }
-    
     .reader-nav button,
     .reader-nav a {
         font-size: 0.875rem;
@@ -183,7 +171,7 @@
 
 /* 目录页面样式 */
 .reader-header {
-    position: sticky;
+    position: relative;
     top: 0;
     background-color: var(--bg-color);
     padding: 15px;
@@ -300,10 +288,6 @@
     .reader-header button {
         padding: 6px 12px;
         font-size: 0.85rem;
-    }
-
-    .reader-nav {
-        padding: 10px;
     }
 
     .nav-group {

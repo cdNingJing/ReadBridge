@@ -9,10 +9,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     // 获取DOM元素
-    const chapterTitle = document.querySelector('.chapter-title');
-    const chapterContent = document.querySelector('.chapter-content');
-    const prevButton = document.querySelector('.prev-chapter');
-    const nextButton = document.querySelector('.next-chapter');
+    const chapterTitle = document.getElementById('chapterTitle');
+    const chapterContent = document.getElementById('chapterContent');
+    const prevButton = document.getElementById('prevChapterBtn');
+    const nextButton = document.getElementById('nextChapterBtn');
+    const backButton = document.getElementById('backBtn');
+    const catalogButton = document.getElementById('catalogBtn');
 
     // 创建处理器
     const processor = ProcessorFactory.createProcessor(url);

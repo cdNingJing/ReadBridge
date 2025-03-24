@@ -68,7 +68,7 @@ class XbiquguProcessor extends BaseProcessor {
                             'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8'
                         }
                     };
-                    console.log(`请求头:`, options.headers);
+                    console.log(`请求头:`, proxyUrl, options);
 
                     console.log(`开始第 ${retryCount + 1} 次请求...`);
                     const response = await fetch(proxyUrl, options);
